@@ -2,15 +2,15 @@
 
 The Ych16 ISA features 7 general-purpose registers, each of word-size (16-bits). Registers have strong roles and purposes therefore violating those roles usually impose limitations, causing more instructions just moving things around. Whereas by leaning into these roles, you'll be able to make use of addressing capabilities the best and also enjoy usually shorter instruction encodings along with less instructions. For ordinary arithmetic though, using any register works just fine as they are all perfectly capable of being directly addressed. But the accumulator register is usually the best choice as a primary accumulation target because it has certain special encodings.
 
-| Register Abb. | Register Name | Direct-Addressable | Base/Indirect-Addressable | Index-Addressable |
-| :-----------: | :-----------: | :----------------: | :-----------------------: | :---------------: |
-|   `RA`,`ra`   | Accumulator   |        Yes         |            Yes            |        Yes        |
-|   `RB`,`rb`   | Base          |        Yes         |            Yes            |        No         |
-|   `RC`,`rc`   | Counter       |        Yes         |            No             |        Yes        |
-|   `RI`,`ri`   | Index         |        Yes         |            No             |        Yes        |
-|   `RO`,`ro`   | Ordinal       |        Yes         |            No             |        Yes        |
-|   `RP`,`rp`   | Pointer       |        Yes         |            Yes            |        No         |
-|   `RS`,`rs`   | Stack Pointer |        Yes         |            Yes            |        No         |
+| Register Abb. | Register Name | Byte-Addressable | Base/Indirect-Addressable | Index-Addressable |
+| :-----------: | :-----------: | :--------------: | :-----------------------: | :---------------: |
+|   `RA`,`ra`   | Accumulator   |       Yes        |            Yes            |        Yes        |
+|   `RB`,`rb`   | Base          |       No         |            Yes            |        No         |
+|   `RC`,`rc`   | Counter       |       Yes        |            No             |        Yes        |
+|   `RI`,`ri`   | Index         |       Yes        |            No             |        Yes        |
+|   `RO`,`ro`   | Ordinal       |       Yes        |            No             |        Yes        |
+|   `RP`,`rp`   | Pointer       |       No         |            Yes            |        No         |
+|   `RS`,`rs`   | Stack Pointer |       No         |            Yes            |        No         |
 
 The `RS` register always points at the top of the stack, at least that's what every stack instruction and architectural rules presume. The Ych stack grows downward, i.e. enlarging the stack causes the stack pointer to decrease, shrinking the stack causes the stack pointer to increase. The stack push operation order is 1. decrement pointer, 2. store element. The reverse is true for a pop operation.
 
