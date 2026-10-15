@@ -1,4 +1,4 @@
-## Opcode(s) 10-21; Instruction `bcp - Bit Copy`
+## Opcode B0; Instruction `bcp - Bit Copy`
 
 Copies bit N of an operand into the PSW (Processor Status Word) CF (Carry Flag) bit.
 
