@@ -119,9 +119,9 @@ Ych16 instructions rely on two logical operands; the **source** and the **destin
 
 Do note that opcodes can explicitly forbid the three-operand extension as an inherent property, like how `loa - Load` and `swa - Swap` does, because having two operands with them is nonsensical, which is why the decoder will raise `Nonsensical Instruction Exception (NIE)`. Always refer to the instructions' documents which will always document the eligibility.
 
-## The Golden Rule: Defining the Operand Decode Order without Ambiguity
+## The Rule of Decode Order: Defining the Operand Decode Order without Ambiguity
 
-The Ych ISA follows a very strict decode order since its cascasing variable-length instruction format mandates rigid rules around it. This is where the **Golden Rule** comes from. The decoder will always decode the operands in this order:
+The Ych ISA follows a very strict decode order since its cascasing variable-length instruction format mandates rigid rules around it. This is where the **Rule of Decode Order** comes from. The decoder will always decode the operands in this order:
 1. Destination-Commit (`DC`)
 2. Destination-Facade (`DF`)
 3. Source (`SRC`)
